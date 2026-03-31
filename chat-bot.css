@@ -1,0 +1,54 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  /* BotUI Chat container */
+  #botui-app {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+  }
+  
+  /* Customize BotUI message content */
+  .botui-message-content {
+    font-size: 16px;
+  }
+  
+  /* BotUI container styling */
+  .botui-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+  }
+  
+  /* Style for action buttons (e.g., send button) */
+  .botui-container .botui-action-button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Style the chat input field */
+  .botui-action-text input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  /* Bot messages styling */
+  .botui-message.botui-message-right {
+    background-color: #e1ffe1;
+  }
+  
+  .botui-message.botui-message-left {
+    background-color: #f0f0f0;
+  }
+  
