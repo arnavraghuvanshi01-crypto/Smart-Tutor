@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Tutor - Empowering Student Learning</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">
+          <h2>Smart Tutor</h2>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#contact-us">Feedback</a></li>
+          <li><a href="./polling_page.html">Pollway</a></li>
+          <li><a href="./calender.html">Calendar</a></li>
+          <li><a href="./question-papers.html">PYQs</a></li>
+          <li><a href="./study-tips.html">Study Tips</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="container">
+          <h1 class="hero-title">Smart Tutor</h1>
+          <p class="hero-subtitle">A lighthouse in the vast sea of knowledge</p>
+          <div class="features">
+            <div class="feature">
+              <i class="fas fa-bullhorn"></i>
+              <a href="summary.html">
+                <h3>Lecture notes Summarization</h3>
+              </a>
+              <p>Transform lengthy lecture notes into concise, easy-to-digest summaries in seconds with Smart Tutor!</p>
+            </div>
+            <div class="feature">
+              <a href="./chatbotui/chat.html">
+                <i class="fas fa-comments"></i>
+                <h3>Smart Chat Assistant</h3>
+                <p>Get instant help with your studies from our AI tutor - no login required!</p>
+              </a>
+            </div>
+            <div class="feature">
+              <a href="./notes.html" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-book-reader"></i>
+                <h3>Accessible Resources</h3>
+                <p>Access notes, question papers, and study materials easily.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-us">
+        <div class="container">
+          <h2>About Us</h2>
+          <p>Smart Tutor is an AI-powered platform designed to enhance learning for university students. The platform aims to simplify academics, save time, and provide personalized learning solutions for an efficient and engaging educational experience. From summarizing notes and providing past question papers to assisting with assignments and offering a smart chatbot, it's designed to make studying easier and more engaging.</p>
+        </div>
+      </section>
+
+      <section class="testimonials">
+        <div class="container">
+          <h2>What Our Users Say</h2>
+          <div class="testimonial-grid">
+            <div class="testimonial">
+              <p>"Smart Tutor has been a game-changer for communication. The notes summarization saves me hours and the AI assignment help is a lifesaver during tight deadlines."</p>
+              <h4>- Arjun Nair</h4>
+            </div>
+            <div class="testimonial">
+              <p>"Smart Tutor made my academic life so much simple. The chatbot feels like a study buddy that's always there. It's not just a platform; it's like having a genius partner in education!"</p>
+              <h4>- Priya Sharma</h4>
+            </div>
+            <div class="testimonial">
+              <p>"Accessing past papers is super convenient, and the chatbot always has the answers I need. It feels like having a personal tutor available 24/7—it's truly amazing!"</p>
+              <h4>- Sandeep Patel</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-us" class="contact-us">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <form>
+            <h3>SMART DOUBT CLEARANCE</h3>
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-about">
+            <h3>About Smart Tutor</h3>
+            <p>Smart Tutor is a student-driven platform aimed at enhancing the learning for the students. We believe in empowering students by providing tools for effective learning and fun.</p>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">Activity</a></li>
+              <li><a href="#">Pollway</a></li>
+              <li><a href="#">Live</a></li>
+              <li><a href="#">Feelings</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Smart Tutor. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Removing the df-messenger and using custom chat -->
+    <a href="./chatbotui/chat.html" id="chat-button" class="chat-button">
+      <i class="fas fa-comments"></i>
+    </a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
