@@ -1,0 +1,317 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* Header */
+.header-container {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+}
+
+.header-content {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Search Bar */
+.search-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#searchInput:focus {
+    border-color: #1e3c72;
+    outline: none;
+}
+
+#searchButton {
+    padding: 0.8rem 1.5rem;
+    background-color: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #2a5298;
+}
+
+/* Layout */
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - var(--header-height));
+    margin-top: 0;
+}
+
+.subjects-container {
+    width: 100%;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.subjects-container.with-pdf {
+    width: 100%;
+}
+
+.pdf-viewer {
+    width: 100%;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    padding: 1rem;
+    overflow-y: auto;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+/* Subjects & Notes Grid */
+.subject {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.subject h2 {
+    color: #1e3c72;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.note-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.note-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.note-item h3 {
+    color: #2a5298;
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+}
+
+.note-item .topic {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.note-item .description {
+    color: #444;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.download-btn {
+    background-color: #2a5298;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.download-btn:hover {
+    background-color: #1e3c72;
+}
+
+/* Upload Section */
+.upload-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-container h2 {
+    color: #1e3c72;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.form-group select,
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-group select:focus,
+.form-group input[type="text"]:focus {
+    border-color: #1e3c72;
+    outline: none;
+}
+
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px dashed #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.upload-btn {
+    background-color: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.upload-btn:hover {
+    background-color: #2a5298;
+}
+
+/* Footer */
+footer {
+    background-color: #1e3c72;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .header-content h1 {
+        font-size: 2rem;
+    }
+
+    .notes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    #searchButton {
+        width: 100%;
+    }
+
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .subjects-container,
+    .pdf-viewer {
+        width: 100%;
+        height: auto;
+    }
+}

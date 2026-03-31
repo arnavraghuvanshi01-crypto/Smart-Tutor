@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Sharing Platform - Smart Tutor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="notes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <h2>Smart Tutor</h2>
+        </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#contact-us">Feedback</a></li>
+                <li><a href="./polling_page.html">Pollway</a></li>
+                <li><a href="./calender.html">Calendar</a></li>
+                <li><a href="./question-papers.html">PYQs</a></li>
+                <li><a href="./study-tips.html">Study Tips</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>Notes Sharing Platform</h1>
+                <p>Share and learn together</p>
+            </div>
+        </section>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search notes...">
+            <button id="searchButton">Search</button>
+        </div>
+
+        <div id="subjectsContainer" class="subjects-container">
+            <div class="subject">
+                <h2>Python</h2>
+                <div class="notes-grid">
+                    <div class="note-item" data-subject="python" data-index="0">
+                        <h3>Python Basics</h3>
+                        <p class="topic">Introduction, Data Types, Control Flow</p>
+                        <p class="description">Complete guide to Python basics including variables, data types, operators, and control structures.</p>
+                        <button class="download-btn" data-subject="python" data-index="0">View Notes</button>
+                    </div>
+                    <div class="note-item" data-subject="python" data-index="1">
+                        <h3>Python OOP</h3>
+                        <p class="topic">Classes, Objects, Inheritance, Polymorphism</p>
+                        <p class="description">Detailed notes on Object-Oriented Programming in Python with practical examples.</p>
+                        <button class="download-btn" data-subject="python" data-index="1">View Notes</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subject">
+                <h2>C++</h2>
+                <div class="notes-grid">
+                    <div class="note-item" data-subject="cpp" data-index="0">
+                        <h3>C++ Basics</h3>
+                        <p class="topic">Syntax, Data Types, Control Structures</p>
+                        <p class="description">Fundamental C++ programming concepts and basic syntax.</p>
+                        <button class="download-btn" data-subject="cpp" data-index="0">View Notes</button>
+                    </div>
+                    <div class="note-item" data-subject="cpp" data-index="1">
+                        <h3>C++ OOP</h3>
+                        <p class="topic">Classes, Inheritance, Polymorphism, Templates</p>
+                        <p class="description">Comprehensive guide to Object-Oriented Programming in C++.</p>
+                        <button class="download-btn" data-subject="cpp" data-index="1">View Notes</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subject">
+                <h2>Java</h2>
+                <div class="notes-grid">
+                    <div class="note-item" data-subject="java" data-index="0">
+                        <h3>Java Core</h3>
+                        <p class="topic">Basics, OOP, Exception Handling</p>
+                        <p class="description">Core Java concepts including basic syntax and OOP principles.</p>
+                        <button class="download-btn" data-subject="java" data-index="0">View Notes</button>
+                    </div>
+                    <div class="note-item" data-subject="java" data-index="1">
+                        <h3>Java Collections</h3>
+                        <p class="topic">List, Set, Map, Stream API</p>
+                        <p class="description">Comprehensive guide to Java Collections Framework.</p>
+                        <button class="download-btn" data-subject="java" data-index="1">View Notes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DBMS Section -->
+            <div class="subject">
+                <h2>Database Management System</h2>
+                <div class="notes-grid">
+                    <div class="note-item" data-subject="dbms" data-index="0">
+                        <h3>DBMS Fundamentals</h3>
+                        <p class="topic">Complete DBMS Course</p>
+                        <p class="description">Complete guide to database management systems including ER modeling and normalization.</p>
+                        <button class="download-btn" data-subject="dbms" data-index="0">View Notes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OS Section -->
+            <div class="subject">
+                <h2>Operating System</h2>
+                <div class="notes-grid">
+                    <div class="note-item" data-subject="os" data-index="0">
+                        <h3>OS Basics</h3>
+                        <p class="topic">Complete OS Course</p>
+                        <p class="description">Complete guide to operating systems covering process management, memory management, and file systems.</p>
+                        <button class="download-btn" data-subject="os" data-index="0">View Notes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Computer Networks Section -->
+            <div class="subject">
+                <h2>Computer Networks</h2>
+                <div class="notes-grid">
+                    <div class="note-item" data-subject="cn" data-index="0">
+                        <h3>Networking Basics</h3>
+                        <p class="topic">Complete Networking Course</p>
+                        <p class="description">Complete guide to computer networks covering network models, protocols, and security.</p>
+                        <button class="download-btn" data-subject="cn" data-index="0">View Notes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="upload-container">
+        <h2><i class="fas fa-upload"></i> Share Your Notes</h2>
+        <form id="uploadForm">
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" required>
+                    <option value="">Select a subject</option>
+                    <option value="python">Python Programming</option>
+                    <option value="cpp">C++ Programming</option>
+                    <option value="java">Java Programming</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="topic">Topic</label>
+                <input type="text" id="topic" placeholder="Enter the topic" required>
+            </div>
+            <div class="form-group">
+                <label for="fileInput">Upload Notes</label>
+                <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" required>
+            </div>
+            <button type="submit" class="upload-btn"><i class="fas fa-upload"></i> Upload Notes</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <h3>About Smart Tutor</h3>
+                    <p>Smart Tutor is a student-driven platform aimed at enhancing the learning for the students. We believe in empowering students by providing tools for effective learning and fun.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Activity</a></li>
+                        <li><a href="#">Pollway</a></li>
+                        <li><a href="#">Live</a></li>
+                        <li><a href="#">Feelings</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart Tutor. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="./chatbotui/chat.html" id="chat-button" class="chat-button">
+        <i class="fas fa-comments"></i>
+    </a>
+
+    <script src="notes.js"></script>
+</body>
+</html>
