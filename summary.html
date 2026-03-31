@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Tutor - Notes Summarization</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+      <h1>Notes Summarization</h1>
+      <div class="input-section">
+        <textarea id="text-input" placeholder="Paste your lecture notes here..." rows="10"></textarea>
+        <div id="char-counter">0/10000 characters</div>
+        <button id="summarize-btn" class="btn">
+          <i class="fas fa-magic"></i> Summarize Notes
+        </button>
+      </div>
+
+      <div id="loading-spinner" class="hidden">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>Summarizing your notes...</p>
+      </div>
+
+      <div id="error-message" class="hidden"></div>
+
+      <div id="summary-result" class="hidden">
+        <h2>Summary</h2>
+        <div class="summary-content">
+          <div id="summary-content"></div>
+          <button id="copy-btn" class="btn">
+            <i class="fas fa-copy"></i> Copy Summary
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Chat Button -->
+    <a href="./chatbotui/chat.html" id="chat-button" class="chat-button">
+      <i class="fas fa-comments"></i>
+    </a>
+
+    <script src="summary.js"></script>
+    <script>
+      // Load header and footer
+      $(function(){
+        $("#header-placeholder").load("header.html");
+        $("#footer-placeholder").load("footer.html");
+      });
+
+      // Character counter
+      const textarea = document.getElementById('text-input');
+      const charCounter = document.getElementById('char-counter');
+      
+      textarea.addEventListener('input', function() {
+        const count = this.value.length;
+        charCounter.textContent = `${count}/10000 characters`;
+        if (count > 9000) {
+          charCounter.classList.add('warning');
+        } else {
+          charCounter.classList.remove('warning');
+        }
+      });
+
+      // Summarize button click handler
+      document.getElementById('summarize-btn').addEventListener('click', async function() {
+        const text = textarea.value.trim();
+        const errorMessage = document.getElementById('error-message');
+        const summaryResult = document.getElementById('summary-result');
+        const summaryContent = document.getElementById('summary-content');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const button = this;
+
+        // Clear previous results
+        errorMessage.classList.add('hidden');
+        summaryResult.classList.add('hidden');
+        loadingSpinner.classList.remove('hidden');
+
+        // Validate input
+        if (!text) {
+          errorMessage.textContent = 'Please enter some text to summarize.';
+          errorMessage.classList.remove('hidden');
+          loadingSpinner.classList.add('hidden');
+          return;
+        }
+
+        if (text.length < 20) {
+          errorMessage.textContent = 'Please enter at least 20 characters.';
+          errorMessage.classList.remove('hidden');
+          loadingSpinner.classList.add('hidden');
+          return;
+        }
+
+        try {
+          // Show loading state
+          button.disabled = true;
+          button.textContent = 'Summarizing...';
+
+          // Make API request
+          const response = await axios.post('http://127.0.0.1:5000/api/summarize', {
+            text: text
+          });
+
+          // Check if response is successful
+          if (response.data && response.data.summary) {
+            summaryContent.textContent = response.data.summary;
+            summaryResult.classList.remove('hidden');
+          } else {
+            throw new Error('Invalid response from server');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          if (error.response) {
+            // Server responded with error
+            errorMessage.textContent = error.response.data.error || 'Failed to generate summary. Please try again.';
+          } else if (error.request) {
+            // Request was made but no response
+            errorMessage.textContent = 'Could not connect to server. Please make sure the server is running.';
+          } else {
+            // Something else went wrong
+            errorMessage.textContent = 'An error occurred. Please try again.';
+          }
+          errorMessage.classList.remove('hidden');
+        } finally {
+          // Reset button state
+          button.disabled = false;
+          button.textContent = 'Summarize Notes';
+          loadingSpinner.classList.add('hidden');
+        }
+      });
+
+      // Copy button click handler
+      document.getElementById('copy-btn').addEventListener('click', function() {
+        const summaryText = document.getElementById('summary-content').textContent;
+        navigator.clipboard.writeText(summaryText).then(() => {
+          const originalText = this.innerHTML;
+          this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          setTimeout(() => {
+            this.innerHTML = originalText;
+          }, 2000);
+        });
+      });
+    </script>
+
+    <style>
+      #loading-spinner {
+        text-align: center;
+        padding: 20px;
+      }
+      
+      .fa-spinner {
+        margin-right: 10px;
+      }
+      
+      .hidden {
+        display: none;
+      }
+
+      #text-input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        resize: vertical;
+        min-height: 200px;
+        margin-bottom: 10px;
+      }
+
+      #text-input:focus {
+        border-color: #4CAF50;
+        outline: none;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+      }
+
+      .input-section {
+        margin-bottom: 20px;
+      }
+    </style>
+  </body>
+</html>
