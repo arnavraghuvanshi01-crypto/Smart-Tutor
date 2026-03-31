@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Year Question Papers - Smart Tutor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="question-papers-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <h2>Smart Tutor</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#contact-us">Feedback</a></li>
+                <li><a href="./polling_page.html">Pollway</a></li>
+                <li><a href="./calender.html">Calendar</a></li>
+                <li><a href="./question-papers.html">PYQs</a></li>
+                <li><a href="./study-tips.html">Study Tips</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>Previous Year Question Papers</h1>
+                <p>Access a comprehensive collection of past exam papers to enhance your preparation</p>
+            </div>
+        </section>
+
+        <section class="question-papers">
+            <div class="container">
+                <div class="filter-section">
+                    <h2>Filter Question Papers</h2>
+                    <form id="filter-form">
+                        <select name="year" id="year">
+                            <option value="">Select Year</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                        <select name="subject" id="subject">
+                            <option value="">Select Subject</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="biology">Biology</option>
+                        </select>
+                        <button type="submit">Apply Filters</button>
+                    </form>
+                </div>
+
+                <div id="papers-grid" class="papers-grid">
+                    <!-- Paper cards will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <h3>About Smart Tutor</h3>
+                    <p>Smart Tutor is a student-driven platform aimed at enhancing the learning for the students. We believe in empowering students by providing tools for effective learning and fun.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Activity</a></li>
+                        <li><a href="#">Pollway</a></li>
+                        <li><a href="#">Live</a></li>
+                        <li><a href="#">Feelings</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart Tutor. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="./chatbotui/chat.html" id="chat-button" class="chat-button">
+        <i class="fas fa-comments"></i>
+    </a>
+
+    <script src="question-papers-script.js"></script>
+</body>
+</html>
+
